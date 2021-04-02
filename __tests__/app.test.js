@@ -22,6 +22,7 @@ describe('Joke CRUD Routes', () => {
 		expect(res.body).toEqual({
 			data: [
 				{
+					id: 1,
 					setup: 'Why did the scarecrow win an award?',
 					punchLine: 'Because he was outstanding in his field.',
 					jokeType: 'general',
@@ -29,6 +30,7 @@ describe('Joke CRUD Routes', () => {
 					userId: 1,
 				},
 				{
+					id: 2,
 					setup:
 						'What do you call a fashionable lawn statue with an excellent sense of rhythmn?',
 					punchLine: 'A metro-gnome',
@@ -37,6 +39,7 @@ describe('Joke CRUD Routes', () => {
 					userId: 1,
 				},
 				{
+					id: 3,
 					setup: 'How many kids with ADD does it take to change a lightbulb?',
 					punchLine: 'Lets go ride bikes!',
 					jokeType: 'general',
@@ -44,6 +47,7 @@ describe('Joke CRUD Routes', () => {
 					userId: 2,
 				},
 				{
+					id: 4,
 					setup: 'A DHCP packet walks into a bar and asks for a beer.',
 					punchLine:
 						'Bartender says, here, but I’ll need that back in an hour!',
@@ -52,6 +56,7 @@ describe('Joke CRUD Routes', () => {
 					userId: 2,
 				},
 				{
+					id: 5,
 					setup: 'What creature is smarter than a talking parrot?',
 					punchLine: 'A spelling bee.',
 					jokeType: 'general',
@@ -66,12 +71,14 @@ describe('Joke CRUD Routes', () => {
 		const res = await request(app).get('/api/v1/jokes/1');
 
 		expect(res.body).toEqual({
-			id: 1,
-			setup: 'Why did the scarecrow win an award?',
-			punchLine: 'Because he was outstanding in his field.',
-			jokeType: 'general',
-			jokeId: 348,
-			userId: 1,
+			data: {
+				id: 1,
+				setup: 'Why did the scarecrow win an award?',
+				punchLine: 'Because he was outstanding in his field.',
+				jokeType: 'general',
+				jokeId: 348,
+				userId: 1,
+			},
 		});
 	});
 });
