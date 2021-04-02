@@ -1,0 +1,32 @@
+[
+	{
+		"id": 348,
+		"type": "general",
+		"setup": "Why did the scarecrow win an award?",
+		"punchline": "Because he was outstanding in his field."
+	},
+	{
+		"id": 216,
+		"type": "general",
+		"setup": "What do you call a fashionable lawn statue with an excellent sense of rhythmn?",
+		"punchline": "A metro-gnome"
+	},
+	{
+		"id": 142,
+		"type": "general",
+		"setup": "How many kids with ADD does it take to change a lightbulb?",
+		"punchline": "Let's go ride bikes!"
+	},
+	{
+		"id": 384,
+		"type": "programming",
+		"setup": "A DHCP packet walks into a bar and asks for a beer.",
+		"punchline": "Bartender says, \"here, but I’ll need that back in an hour!\""
+	},
+	{
+		"id": 160,
+		"type": "general",
+		"setup": "What creature is smarter than a talking parrot?",
+		"punchline": "A spelling bee."
+	}
+]

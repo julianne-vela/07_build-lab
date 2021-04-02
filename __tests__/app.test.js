@@ -1,5 +1,5 @@
 const pool = require('../lib/utils/pool');
-const setup = require('../data/setup');
+const setupTest = require('../data/setup-test-db');
 const request = require('supertest');
 const app = require('../lib/app');
 
@@ -8,8 +8,13 @@ jest.mock('../lib/utils/aws-ses', () => () => ({
 	MessageId: '1111111-1111111-111111-111111',
 }));
 
-describe('joke-api routes', () => {
+describe('Joke CRUD Routes', () => {
 	beforeEach(() => {
-		return setup(pool);
+		return setupTest(pool);
 	});
+	afterAll(() => {
+		return setupTest(pool);
+	});
+
+	it('returns all jokes in the DB', async () => {});
 });
