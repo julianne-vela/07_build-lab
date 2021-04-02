@@ -61,4 +61,17 @@ describe('Joke CRUD Routes', () => {
 			],
 		});
 	});
+
+	it('returns a single joke based on ID', async () => {
+		const res = await request(app).get('/api/v1/jokes/1');
+
+		expect(res.body).toEqual({
+			id: 1,
+			setup: 'Why did the scarecrow win an award?',
+			punchLine: 'Because he was outstanding in his field.',
+			jokeType: 'general',
+			jokeId: 348,
+			userId: 1,
+		});
+	});
 });
