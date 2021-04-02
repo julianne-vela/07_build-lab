@@ -19,6 +19,7 @@ describe('Joke CRUD Routes', () => {
 	it('returns all jokes in the DB', async () => {
 		const res = await request(app).get('/api/v1/jokes');
 
-		expect(res.body).toEqual({});
+		console.log(res.text);
+		expect(res.body).toEqual({ details: 'this and that' });
 	});
 });
