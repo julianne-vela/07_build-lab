@@ -16,6 +16,7 @@ describe('Joke CRUD Routes', () => {
 		return setupTest(pool);
 	});
 
+	// GET ALL
 	it('returns all jokes in the DB', async () => {
 		const res = await request(app).get('/api/v1/jokes');
 
@@ -67,6 +68,7 @@ describe('Joke CRUD Routes', () => {
 		});
 	});
 
+	// GET BY ID
 	it('returns a single joke based on ID', async () => {
 		const res = await request(app).get('/api/v1/jokes/1');
 
@@ -81,4 +83,23 @@ describe('Joke CRUD Routes', () => {
 			},
 		});
 	});
+
+	// POST NEW JOKE
+	it('creates a new joke and inserts it into the DB', async () => {
+		const newJoke = {
+			setup: 'What is the object-oriented way to become wealthy?',
+			punchLine: 'Inheritance',
+			jokeType: 'programming',
+			jokeId: 16,
+			userId: 3,
+		};
+
+		const res = await request(app).post('/api/v1/jokes/create').send(newJoke);
+
+		expect(res.body).toEqual({ ...newJoke, id: 6 });
+	});
+
+	// PUT UPDATE EXISTING JOKE
+
+	// DELETE JOKE
 });
