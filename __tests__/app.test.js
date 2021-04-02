@@ -16,5 +16,9 @@ describe('Joke CRUD Routes', () => {
 		return setupTest(pool);
 	});
 
-	it('returns all jokes in the DB', async () => {});
+	it('returns all jokes in the DB', async () => {
+		const res = await request(app).get('/api/v1/jokes');
+
+		expect(res.body).toEqual({});
+	});
 });
