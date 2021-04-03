@@ -106,7 +106,6 @@ describe('Joke CRUD Routes', () => {
 	// PUT UPDATE EXISTING JOKE
 	it('updates an existing joke within the DB', async () => {
 		const updatedJoke = {
-			id: 2,
 			jokeId: 216,
 			setup:
 				'What do you call a fashionable lawn statue with an excellent sense of rhythmn?',
@@ -116,7 +115,7 @@ describe('Joke CRUD Routes', () => {
 
 		const res = await request(app).put('/api/v1/jokes/2').send(updatedJoke);
 
-		expect(res.body).toEqual(updatedJoke);
+		expect(res.body).toEqual({ ...updatedJoke, id: 2 });
 	});
 
 	// DELETE JOKE
