@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    user_name TEXT NOT NULL,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
     user_email TEXT NOT NULL
 );
 

@@ -28,7 +28,7 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'Because he was outstanding in his field.',
 					jokeType: 'general',
 					jokeId: 348,
-					userId: 1,
+					contributorId: 1,
 				},
 				{
 					id: 2,
@@ -37,7 +37,7 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'A metro-gnome',
 					jokeType: 'general',
 					jokeId: 216,
-					userId: 1,
+					contributorId: 1,
 				},
 				{
 					id: 3,
@@ -45,7 +45,7 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'Lets go ride bikes!',
 					jokeType: 'general',
 					jokeId: 142,
-					userId: 2,
+					contributorId: 2,
 				},
 				{
 					id: 4,
@@ -54,7 +54,7 @@ describe('Joke CRUD Routes', () => {
 						'Bartender says, here, but I’ll need that back in an hour!',
 					jokeType: 'programming',
 					jokeId: 384,
-					userId: 2,
+					contributorId: 2,
 				},
 				{
 					id: 5,
@@ -62,7 +62,7 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'A spelling bee.',
 					jokeType: 'general',
 					jokeId: 160,
-					userId: 3,
+					contributorId: 3,
 				},
 			],
 		});
@@ -79,7 +79,7 @@ describe('Joke CRUD Routes', () => {
 				punchLine: 'Because he was outstanding in his field.',
 				jokeType: 'general',
 				jokeId: 348,
-				userId: 1,
+				contributorId: 1,
 			},
 		});
 	});
@@ -91,15 +91,19 @@ describe('Joke CRUD Routes', () => {
 			punchLine: 'Inheritance',
 			jokeType: 'programming',
 			jokeId: 16,
-			userId: 3,
+			contributorId: 3,
 		};
 
 		const res = await request(app).post('/api/v1/jokes/create').send(newJoke);
 
-		expect(res.body).toEqual({ ...newJoke, id: 6 });
+		expect(res.body).toEqual({
+			details: 'New joke added successfully!',
+			data: { ...newJoke, id: 6 },
+		});
 	});
 
 	// PUT UPDATE EXISTING JOKE
+	it('', async () => {});
 
 	// DELETE JOKE
 });
