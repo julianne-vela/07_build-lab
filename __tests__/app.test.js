@@ -119,4 +119,19 @@ describe('Joke CRUD Routes', () => {
 	});
 
 	// DELETE JOKE
+	it('deletes a joke and returns the deleted row content', async () => {
+		const res = await request(app).delete('/api/v1/2');
+
+		expect(res.body).toEqual({
+			details: 'Deleted Joke #2',
+			data: {
+				id: 2,
+				jokeType: 'lame',
+				jokeId: '216',
+				setup:
+					'What do you call a fashionable lawn statue with an excellent sense of rhythmn?',
+				punchLine: 'A met-gnome',
+			},
+		});
+	});
 });
