@@ -28,7 +28,6 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'Because he was outstanding in his field.',
 					jokeType: 'general',
 					jokeId: 348,
-					contributorId: 1,
 				},
 				{
 					id: 2,
@@ -37,7 +36,6 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'A metro-gnome',
 					jokeType: 'general',
 					jokeId: 216,
-					contributorId: 1,
 				},
 				{
 					id: 3,
@@ -45,7 +43,6 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'Lets go ride bikes!',
 					jokeType: 'general',
 					jokeId: 142,
-					contributorId: 2,
 				},
 				{
 					id: 4,
@@ -54,7 +51,6 @@ describe('Joke CRUD Routes', () => {
 						'Bartender says, here, but I’ll need that back in an hour!',
 					jokeType: 'programming',
 					jokeId: 384,
-					contributorId: 2,
 				},
 				{
 					id: 5,
@@ -62,7 +58,6 @@ describe('Joke CRUD Routes', () => {
 					punchLine: 'A spelling bee.',
 					jokeType: 'general',
 					jokeId: 160,
-					contributorId: 3,
 				},
 			],
 		});
@@ -79,19 +74,25 @@ describe('Joke CRUD Routes', () => {
 				punchLine: 'Because he was outstanding in his field.',
 				jokeType: 'general',
 				jokeId: 348,
-				contributorId: 1,
 			},
 		});
 	});
 
 	// POST NEW JOKE
 	it('creates a new joke and inserts it into the DB', async () => {
+		// const newUser = {
+		// 	first_name: 'Juli',
+		// 	last_name: 'Vela',
+		// 	user_email: 'julianne@nessimaskye.com',
+		// 	id: 4,
+		// };
+		// console.log(newUser);
+
 		const newJoke = {
 			setup: 'What is the object-oriented way to become wealthy?',
 			punchLine: 'Inheritance',
 			jokeType: 'programming',
-			jokeId: 16,
-			contributorId: 3,
+			jokeId: 1,
 		};
 
 		const res = await request(app).post('/api/v1/jokes/create').send(newJoke);
@@ -103,7 +104,20 @@ describe('Joke CRUD Routes', () => {
 	});
 
 	// PUT UPDATE EXISTING JOKE
-	it('', async () => {});
+	it('updates an existing joke within the DB', async () => {
+		const updatedJoke = {
+			id: 2,
+			jokeId: 216,
+			setup:
+				'What do you call a fashionable lawn statue with an excellent sense of rhythmn?',
+			punchLine: 'A met-gnome',
+			jokeType: 'lame',
+		};
+
+		const res = await request(app).put('/api/v1/jokes/2').send(updatedJoke);
+
+		expect(res.body).toEqual(updatedJoke);
+	});
 
 	// DELETE JOKE
 });

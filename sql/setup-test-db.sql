@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
     user_email TEXT NOT NULL
 );
 
@@ -12,16 +14,16 @@ CREATE TABLE jokes (
     setup TEXT NOT NULL,
     punchline TEXT NOT NULL,
     joke_type TEXT NOT NULL,
-    contributor_id INT REFERENCES users(id) ON DELETE SET NULL
+    linked_user INT REFERENCES users(id) ON DELETE SET NULL
 );
 
-INSERT INTO users(user_email)
+INSERT INTO users(first_name, last_name, user_email)
     VALUES
-        ('jane@doe.com'),
-        ('john@doe.com'),
-        ('jjr@doe.com');
+        ('Jane', 'Doe', 'jane@doe.com'),
+        ('John', 'Doe', 'john@doe.com'),
+        ('Jimmy', 'Doe, JR', 'jjr@doe.com');
 
-INSERT INTO jokes(joke_id, joke_type, setup, punchline, contributor_id)
+INSERT INTO jokes(joke_id, joke_type, setup, punchline, linked_user)
     VALUES
         (348, 'general', 'Why did the scarecrow win an award?', 'Because he was outstanding in his field.', 1),
         (216, 'general', 'What do you call a fashionable lawn statue with an excellent sense of rhythmn?', 'A metro-gnome', 1),
