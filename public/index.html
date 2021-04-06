@@ -4,11 +4,53 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="main.css" />
 		<title>Daily Funny</title>
 	</head>
 	<body>
-		<header></header>
-		<main>Hello World!</main>
+		<header>
+			<h1>Daily Jokes API</h1>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+			</nav>
+		</header>
+		<main>
+			<section class="main-container">
+				<form id="sign-up">
+					<fieldset>
+						<legend>Enter your Info</legend>
+						<input type="text" placeholder="First name" name="first_name" />
+						<input type="text" placeholder="Last name" name="last_name" />
+						<input type="email" placeholder="Email" name="email" />
+						<input type="checkbox" id="aws-send" /> Send Email?
+					</fieldset>
+					<fieldset>
+						<legend>Select your Jokes</legend>
+						<select name="joke-category">
+							<option value="">Select a category</option>
+							<option value="random">Random</option>
+							<option value="general">General</option>
+							<option value="programming">Programming</option>
+							<option value="knock-knock">Knock-Knock</option>
+						</select>
+						<label for="single">
+							One
+							<input type="radio" name="quantity" value="" />
+						</label>
+						<label for="ten">
+							Ten
+							<input type="radio" name="quantity" value="ten" />
+						</label>
+					</fieldset>
+					<button>Submit</button>
+				</form>
+			</section>
+			<section>
+				<ul id="joke-list"></ul>
+			</section>
+		</main>
+		<footer>&copy; 2021 Julianne Vela</footer>
 		<script type="module" src="/js/index.js"></script>
 	</body>
 </html>
