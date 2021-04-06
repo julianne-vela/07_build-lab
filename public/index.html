@@ -4,39 +4,42 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="./styles/main.css" />
 		<title>Daily Funny</title>
 	</head>
 	<body>
-		<header>
+		<!-- <header>
 			<h1>Daily Jokes API</h1>
 			<nav>
 				<a href="/">Home</a>
 				<a href="/about">About</a>
 			</nav>
-		</header>
+		</header> -->
 		<main>
 			<section class="main-container">
-				<form id="sign-up">
-					<fieldset>
+				<h1>Random Joke Generator!</h1>
+				<!-- <button id="one">Get a single Random Joke</button>
+				<button id="ten">Get 10 Random Jokes</button> -->
+				<form id="jokes">
+					<!-- <fieldset>
 						<legend>Enter your Info</legend>
 						<input type="text" placeholder="First name" name="first_name" />
 						<input type="text" placeholder="Last name" name="last_name" />
 						<input type="email" placeholder="Email" name="email" />
 						<input type="checkbox" id="aws-send" /> Send Email?
-					</fieldset>
+					</fieldset> -->
 					<fieldset>
 						<legend>Select your Jokes</legend>
-						<select name="joke-category">
-							<option value="">Select a category</option>
-							<option value="random">Random</option>
-							<option value="general">General</option>
-							<option value="programming">Programming</option>
-							<option value="knock-knock">Knock-Knock</option>
+						<select name="joke-type">
+							<option name="joke-type" value="">Select a category</option>
+							<option name="joke-type" value="random">Random</option>
+							<option name="joke-type" value="general">General</option>
+							<option name="joke-type" value="programming">Programming</option>
+							<option name="joke-type" value="knock-knock">Knock-Knock</option>
 						</select>
 						<label for="single">
 							One
-							<input type="radio" name="quantity" value="" />
+							<input type="radio" name="quantity" value="random" />
 						</label>
 						<label for="ten">
 							Ten
@@ -51,6 +54,6 @@
 			</section>
 		</main>
 		<footer>&copy; 2021 Julianne Vela</footer>
-		<script type="module" src="/js/index.js"></script>
+		<script type="module" src="./js/index.js"></script>
 	</body>
 </html>

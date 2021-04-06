@@ -1,41 +1,63 @@
-const form = document.getElementById('sign-up');
+// const oneBtn = document.getElementById('one');
+// const tenBtn = document.getElementById('ten');
+const form = document.getElementById('jokes');
 const ul = document.getElementById('joke-list');
 
-const appendJoke = (joke) => {
-	const li = document.createElement('li');
-	li.textContent = `${joke.setup} ${joke.punchline}`;
-	ul.appendChild(li);
-};
+// oneBtn.addEventListener('click', () => {
+// 	console.log('clicked!');
+// 	fetch('/api/v1/jokes/random', {
+// 		method: 'GET',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 			Host: '127.0.0.1:7890',
+// 		},
+// 	})
+// 		.then((res) => res.json())
+// 		.then(appendJoke);
+// });
+
+// const appendJoke = (joke) => {
+// 	const li = document.createElement('li');
+// 	li.textContent = `${joke.setup} ${joke.punchline}`;
+// 	ul.appendChild(li);
+// };
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	const data = new FormData();
+	const data = new FormData(form);
 
-	const category = data.get('joke-category');
-	const quantity = data
-		.get('quantity')
-
-		// fetch('/api/v1/jokes', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify({
-		// 		first_name: data.get('first_name'),
-		// 		last_name: data.get('last_name'),
-		// 		email: data.get('email'),
-		// 		type: data.get('joke-category'),
-		// 		quantity: data.get('quantity'),
-		// 	}),
-		// })
-
-		.then((res) => res.json())
-		.then(appendJoke);
+	fetch('/api/v1/jokes/create', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			type: data.get('joke-type'),
+			quantity: data.get('quantity'),
+		}),
+	})
+		.then((res) => res.body)
+		.then(console.log('Joke added successfully!'));
+	// .then((jokes) => {
+	// 	jokes.map((joke) => {
+	// 		console.log(joke);
+	// 		const li = document.createElement('li');
+	// 		li.textContent = `${joke.setup} ${joke.punchLine}`;
+	// 		ul.appendChild(li);
+	// 		console.log('joke appended');
+	// 	});
+	// });
 });
 
 fetch('/api/v1/jokes')
 	.then((res) => res.json())
 	.then((jokes) => {
-		jokes.forEach(appendJoke);
+		jokes.map((joke) => {
+			console.log(joke);
+			const li = document.createElement('li');
+			li.textContent = `${joke.setup} ${joke.punchLine}`;
+			ul.appendChild(li);
+			console.log('joke appended');
+		});
 	});

@@ -88,18 +88,25 @@ describe('Joke CRUD Routes', () => {
 		// };
 		// console.log(newUser);
 
-		const newJoke = {
-			setup: 'What is the object-oriented way to become wealthy?',
-			punchLine: 'Inheritance',
-			jokeType: 'programming',
-			jokeId: 1,
-		};
+		// const newJoke = {
+		// 	setup: 'What is the object-oriented way to become wealthy?',
+		// 	punchLine: 'Inheritance',
+		// 	jokeType: 'programming',
+		// 	jokeId: 1,
+		// };
 
-		const res = await request(app).post('/api/v1/jokes/create').send(newJoke);
+		const type = 'random';
+		const quantity = 'random';
+
+		const res = await request(app)
+			.post('/api/v1/jokes/create')
+			.send(type, quantity);
 
 		expect(res.body).toEqual({
 			details: 'New joke added successfully!',
-			data: { ...newJoke, id: 6 },
+			data: {
+				id: expect.any(),
+			},
 		});
 	});
 
