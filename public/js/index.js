@@ -39,6 +39,7 @@ form.addEventListener('submit', (e) => {
 	})
 		.then((res) => res.body)
 		.then(console.log('Joke added successfully!'));
+	// .then(appendJoke)
 	// .then((jokes) => {
 	// 	jokes.map((joke) => {
 	// 		console.log(joke);
@@ -61,3 +62,5 @@ fetch('/api/v1/jokes')
 			console.log('joke appended');
 		});
 	});
+// .then((jokes) => {jokes.forEach(appendJoke);
+// });
